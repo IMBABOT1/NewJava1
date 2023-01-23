@@ -5,6 +5,27 @@ import java.util.Arrays;
 
 public class Main {
 
+    private static int findMax(int[] arr) {
+        int max = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (max < arr[i]) {
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+
+
+    private static int findMin(int[] arr) {
+        int min = arr[0];
+        for (int i = 0; i < arr.length; i++) {
+            if (min > arr[i]) {
+                min = arr[i];
+            }
+        }
+        return min;
+    }
+
     private static void fillDiagonal(int[][] arr) {
         int first = 0;
         int second = arr.length;
@@ -59,11 +80,14 @@ public class Main {
 //        lessThenSix(arr);
 //        System.out.println(Arrays.toString(arr));
 
-        int[][] arr = new int[5][5];
-        fillDiagonal(arr);
+//        int[][] arr = new int[5][5];
+//        fillDiagonal(arr);
 
-        System.out.println(Arrays.deepToString(arr));
 
+        int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+
+        System.out.println(findMin(arr));
+        System.out.println(findMax(arr));
 
     }
 }
