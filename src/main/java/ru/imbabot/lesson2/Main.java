@@ -1,15 +1,41 @@
 package ru.imbabot.lesson2;
 
 
+import java.util.Arrays;
+
 public class Main {
 
-    private static boolean checkBalance(int[] arr){
-        for (int i = 0; i < arr.length ; i++) {
+    private static void shiftElements(int[] arr, int n) {
+        if (n < 0) {
+            n *= -1;
+            for (int i = 0; i < n; i++) {
+                int element = arr[0];
+                for (int j = 0; j < arr.length - 1; j++) {
+                    arr[j] = arr[j + 1];
+                }
+                arr[arr.length - 1] = element;
+            }
+        }
+
+        if (n > 0) {
+            for (int i = 0; i < n; i++) {
+                int element = arr[arr.length - 1];
+                for (int j = arr.length - 2; j >= 0; j--) {
+                    arr[j + 1] = arr[j];
+                }
+                arr[0] = element;
+            }
+        }
+        System.out.println(Arrays.toString(arr));
+    }
+
+    private static boolean checkBalance(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
             int sum = 0;
-            for (int j = 0; j < i; j++){
+            for (int j = 0; j < i; j++) {
                 sum += arr[j];
             }
-            for (int j = i; j < arr.length; j++){
+            for (int j = i; j < arr.length; j++) {
                 sum -= arr[j];
             }
             if (sum == 0)
@@ -102,10 +128,14 @@ public class Main {
 //
 //        System.out.println(findMin(arr));
 //        System.out.println(findMax(arr));
+//
+//        int[] arr = {10, 10};
+//
+//        System.out.println(checkBalance(arr));
 
-        int[] arr = {10, 10};
+        int[] arr = {8, 1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1, 3, 4};
 
-        System.out.println(checkBalance(arr));
+        shiftElements(arr, 2);
 
     }
 }
