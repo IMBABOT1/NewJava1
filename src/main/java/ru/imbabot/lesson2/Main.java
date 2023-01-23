@@ -1,9 +1,23 @@
 package ru.imbabot.lesson2;
 
 
-import java.util.Arrays;
-
 public class Main {
+
+    private static boolean checkBalance(int[] arr){
+        for (int i = 0; i < arr.length ; i++) {
+            int sum = 0;
+            for (int j = 0; j < i; j++){
+                sum += arr[j];
+            }
+            for (int j = i; j < arr.length; j++){
+                sum -= arr[j];
+            }
+            if (sum == 0)
+                return true;
+        }
+        return false;
+
+    }
 
     private static int findMax(int[] arr) {
         int max = arr[0];
@@ -83,11 +97,15 @@ public class Main {
 //        int[][] arr = new int[5][5];
 //        fillDiagonal(arr);
 
+//
+//        int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+//
+//        System.out.println(findMin(arr));
+//        System.out.println(findMax(arr));
 
-        int[] arr = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
+        int[] arr = {10, 10};
 
-        System.out.println(findMin(arr));
-        System.out.println(findMax(arr));
+        System.out.println(checkBalance(arr));
 
     }
 }
