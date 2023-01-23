@@ -4,6 +4,12 @@ import java.util.Arrays;
 
 public class Main {
 
+    private static void fillArr(int[] arr){
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i * 3;
+        }
+    }
+
     private static void changeNumbers(int[] arr){
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == 0){
@@ -15,8 +21,15 @@ public class Main {
     }
 
     public static void main(String[] args) {
-        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-        changeNumbers(arr);
+//        int[] arr = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
+//        changeNumbers(arr);
+//        System.out.println(Arrays.toString(arr));
+//
+        int[] arr = new int[8];
+        fillArr(arr);
         System.out.println(Arrays.toString(arr));
+
+
+
     }
 }
