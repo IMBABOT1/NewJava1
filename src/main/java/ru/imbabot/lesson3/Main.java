@@ -39,6 +39,7 @@ public class Main {
         String guessWord = words[0 + (int) (Math.random() * words.length)];
 
         while (true) {
+            System.out.println(guessWord);
             System.out.println("Enter guess word");
             String word = scanner.next();
             String[] temp = new String[]{"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"};
