@@ -1,5 +1,6 @@
 package ru.imbabot.lesson3;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -32,7 +33,32 @@ public class Main {
         } while (again == 1);
     }
 
+    private static void guessWord() {
+        Scanner scanner = new Scanner(System.in);
+        String[] words = {"apple", "orange", "lemon", "banana", "apricot", "avocado", "broccoli", "carrot", "cherry", "garlic", "grape", "melon", "leak", "kiwi", "mango", "mushroom", "nut", "olive", "pea", "peanut", "pear", "pepper", "pineapple", "pumpkin", "potato"};
+        String guessWord = words[0 + (int) (Math.random() * words.length)];
+
+        while (true) {
+            System.out.println("Enter guess word");
+            String word = scanner.next();
+            String[] temp = new String[]{"#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#", "#"};
+            System.out.println(temp.length);
+            if (word.equals(guessWord)) {
+                System.out.println(guessWord);
+                System.out.println("win");
+                break;
+            } else if (!word.equals(guessWord)) {
+                for (int i = 0; i < word.length(); i++) {
+                    if (word.charAt(i) == guessWord.charAt(i)) {
+                        temp[i] = String.valueOf(word.charAt(i));
+                    }
+                }
+                System.out.println(Arrays.toString(temp));
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        guessNumber();
+        guessWord();
     }
 }
